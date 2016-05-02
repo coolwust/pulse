@@ -1,0 +1,41 @@
+extends ./layout.pug
+
+block title
+  title New User Registration
+
+append link
+  link(rel='stylesheet' type='text/css' href=css+'/forms.css')
+  link(rel='stylesheet' type='text/css' href=css+'/register.css')
+
+append script
+  script.
+    require.config({paths: {'Tether': '../bower_components/tether/dist/js/tether.min'}});
+    require(['register'], register => register());
+
+block body
+  main.paddings.container: form
+    - var left   = ['col-xs-12', 'col-sm-4', 'col-md-3']
+    - var center = ['col-xs-12', 'col-sm-8', 'col-md-3']
+    - var right  = ['col-xs-12', 'col-sm-8', 'col-sm-offset-4', 'col-md-6', 'col-md-offset-0']
+    fieldset 
+      p.row: legend(class=left) User Information
+      p.row.form-group
+        label.form-control-label(for='email', class=left) Email
+        input#email.form-control(type='email', name='email', class=center, autofocus)
+        span.form-control-message(class=right)
+      p.row.form-group
+        label.form-control-label(for='password', class=left) Password
+        input#password.form-control(type='password', name='password', class=center)
+        span.form-control-toggle.password
+        span.form-control-message(class=right)
+      p.row.form-group
+        label.form-control-label(for='name', class=left) Full Name
+        input#name.form-control(type='text', class=center)
+        span.form-control-message(class=right)
+    fieldset
+      p.row: legend(class=left) API Keys
+      p.row.form-group
+        label.form-control-label(for='mw-collegiate-key', class=left) MW Collegiate Dict
+        input#mw-collegiate-key.form-control(type='text', class=center)
+        span.form-control-message(class=right)
+    button.col-sm-offset-4.col-md-offset-3.loading(type='submit') Confirm

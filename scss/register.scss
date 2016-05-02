@@ -1,0 +1,32 @@
+@import "_variables.scss";
+
+body {
+    margin-top: 10%;
+}
+
+legend {
+  font-weight: 600;
+  border-bottom: .5rem solid transparent;
+  @media (min-width: map-get($breakpoint-min-widths, "sm")) {
+    text-align: right;
+  }
+}
+
+fieldset {
+  border-bottom: 1rem solid transparent;
+}
+
+.form-group {
+  @media (max-width: map-get($breakpoint-min-widths, "md")) {
+    margin-bottom: .5rem;
+  }
+  @media (min-width: map-get($breakpoint-min-widths, "sm")) {
+    text-align: right;
+  }
+}
+
+.form-control-message {
+  @media (max-width: map-get($breakpoint-min-widths, "md")) {
+    padding-left: 1rem;
+  }
+}

@@ -1,0 +1,100 @@
+@import "variables";
+
+// Forms
+
+.form-control-label {
+  padding: $label-padding-y $label-padding-x;
+  margin-bottom: 0; // Override reboot
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: $input-padding-y $input-padding-x;
+  font-size: $font-size-base;
+  line-height: $line-height;
+  color: $input-color;
+  background-color: $input-bg;
+  background-image: none;
+  border: $input-border;
+  border-radius: $input-border-radius;
+  box-shadow: $input-box-shadow;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+  &:focus {
+    outline: none;
+    border-color: $input-border-color-focus;
+    box-shadow: $input-box-shadow-focus;
+  }
+
+  &::placeholder {
+    color: $input-placeholder-color;
+    // Override Firefox's unusual default opacity.
+    opacity: 1;
+  }
+
+  &:disabled,
+  &[readonly] {
+    background-color: $input-bg-disabled;
+    // iOS fix for unreadable disabled content.
+    opacity: 1;
+  }
+
+  &:disabled { cursor: not-allowed; }
+
+  &.has-toggle {
+    padding-right: $control-toggle-width;
+  }
+}
+
+.form-control-message {
+  padding: $control-message-padding-y $control-message-padding-x;
+  &::before {
+    padding-right: $control-message-padding-x;
+  }
+}
+
+.form-control-toggle {
+  width: 0;
+  &::before {
+    position: relative;
+    text-align: center;
+    width: $control-toggle-width;
+    left: -$control-toggle-width;
+    cursor: pointer;
+    color: $gray-light;
+    font-family: $font-family-sans-serif;
+    font-weight: 600;
+  }
+}
+
+// Make file inputs better match text inputs by forcing them to new lines.
+.form-control-file,
+.form-control-range {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: $form-group-margin-bottom;
+  &.has-danger {
+    .form-control-message {
+      &::before {
+        font-family: "FontAwesome";
+        content: "\f057";
+      }
+      color: $brand-danger;
+    }
+  }
+}
+
+//.form-control-static {
+//  // TODO: $input-height?
+//  // min-height: $input-height;
+//  //
+//  // Size it appropriately next to real form controls
+//  padding-top: $input-padding-y;
+//  padding-bottom: $input-padding-y;
+//  // Remove default margin from `p`
+//  margin-bottom: 0;
+//}
+//

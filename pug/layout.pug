@@ -1,0 +1,22 @@
+doctype html
+
+- var bower = '/static/bower_components'
+- var css   = '/static/css'
+- var js    = '/static/js'
+
+html(lang='en')
+  head
+    block meta
+      meta(charset='UTF-8')
+      meta(name='viewport', content='width=device-width, initial-scale=1')
+    block title
+    block link
+      link(rel='stylesheet', type='text/css', href=bower+'/font-awesome/css/font-awesome.min.css')
+      link(rel='stylesheet', type='text/css', href=bower+'/roboto-fontface/css/roboto-fontface.css')
+      link(rel='stylesheet', type='text/css', href=bower+'/normalize-css/normalize.css')
+      link(rel='stylesheet', type='text/css', href=css+'/layout.css')
+    block script
+      script(src=bower+'/requirejs/require.js')
+      script require.config({baseUrl: '/public/js'});
+  body
+    block body
